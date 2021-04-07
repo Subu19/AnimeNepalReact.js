@@ -1,0 +1,40 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "../pages/home";
+import Browse from "../pages/browse";
+import Feed from "../pages/feed";
+import Chat from "../pages/chat";
+import Error from "../pages/error";
+import Navigation from "../components/nav/nav";
+
+function Path() {
+  return (
+    <>
+      <Router>
+        <Navigation></Navigation>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/browse">
+            <Browse />
+          </Route>
+          <Route path="/feed">
+            <Feed />
+          </Route>
+          <Route path="/chat">
+            <Chat />
+          </Route>
+          <Route path="*">
+            <Error />
+          </Route>
+        </Switch>
+      </Router>
+    </>
+  );
+}
+
+export default Path;
