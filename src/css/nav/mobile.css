@@ -1,0 +1,70 @@
+@media screen and (max-width: 800px) {
+  .navLink {
+    display: none;
+  }
+  .navLink span {
+    display: none;
+  }
+  .navLinks {
+    flex: none;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+    height: 50px;
+    width: 50px;
+    align-self: center;
+  }
+  .clientInfo {
+    display: none;
+  }
+  .menuIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navIcon {
+    height: 100%;
+  }
+  .navMenuContainner {
+    text-decoration: none;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    width: 200px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    height: 0px;
+    overflow: hidden;
+    border-bottom-left-radius: 20px;
+    transition: 0.2s;
+  }
+
+  .navMenuContainner a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .menuLink {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-width: 2px;
+    border-bottom-style: solid;
+    border-color: grey;
+    transition: 0.2s;
+  }
+  .menuLink:hover {
+    background-color: rgb(187, 187, 187);
+  }
+  .menuLink img {
+    height: 40px;
+    margin-left: 10px;
+  }
+  .menuLinkName {
+    color: green;
+    text-decoration-style: none;
+    margin-left: 10px;
+  }
+}

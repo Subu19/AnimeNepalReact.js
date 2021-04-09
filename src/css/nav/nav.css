@@ -5,6 +5,8 @@
   justify-content: space-between;
   background-color: #101c26;
   /* background-color: rgb(228, 228, 228); */
+  z-index: 100;
+  position: sticky;
 }
 .logoContainner {
   flex: 1;
@@ -28,7 +30,7 @@
   max-width: 470px;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
-  background-color: rgb(204, 204, 204);
+  background-color: var(--white);
   transition: 0.2s;
 }
 
@@ -52,7 +54,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(108, 197, 20);
+  color: rgb(5, 145, 40);
+  font-weight: 600;
   padding: 5px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -91,6 +94,9 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--green);
 }
 .clientPfp img {
   height: 50px;
@@ -100,4 +106,10 @@
   font-size: 15px;
   margin-left: 10px;
   font-weight: 500;
+}
+.navMenuContainner {
+  display: none;
+}
+.menuIcon {
+  display: none;
 }

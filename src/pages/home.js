@@ -1,7 +1,11 @@
 import React from "react";
-
+import NewsContainner from "../components/home";
 function Home() {
-  return <div className="main">Hi this is home!</div>;
+  return (
+    <div className="main">
+      <NewsContainner></NewsContainner>
+    </div>
+  );
 }
 
 export default Home;

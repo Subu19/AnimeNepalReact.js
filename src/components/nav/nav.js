@@ -1,5 +1,7 @@
 import React from "react";
 import "../../css/nav/nav.css";
+import "../../css/nav/mobile.css";
+
 import Logo from "./logo";
 import NavLinks from "./navLinks";
 import ClientInfo from "./clientInfo";
