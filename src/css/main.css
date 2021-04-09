@@ -1,5 +1,6 @@
 :root {
-  --green: #44b337;
+  --green: rgb(15, 216, 65);
+
   --darkgreen: #125e1a;
   --dark: #101c26;
   --dark2: #426a8c;
@@ -41,11 +42,8 @@ body {
 .main {
   height: calc(100vh - 60px);
   width: 100vw;
-  display: flex;
-  justify-content: center;
   overflow: hidden;
   overflow-y: scroll;
-  align-items: center;
   color: whitesmoke;
 }
 .loadingContainner {
@@ -68,4 +66,20 @@ body {
 .smallLoading {
   height: 40px;
   width: 40px;
+}
+.genre {
+  background-color: black;
+  color: var(--green);
+  font-size: 13px;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  min-width: 70px;
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }

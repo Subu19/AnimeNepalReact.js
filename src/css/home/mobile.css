@@ -11,3 +11,25 @@
     margin-top: -80px;
   }
 }
+@media screen and (max-width: 500px) {
+  .slideAnime img {
+    margin-left: 10px;
+  }
+  .trendingSlide {
+    max-height: 300px;
+  }
+  .mainAnimeTitle {
+    font-size: 14px;
+  }
+  .slideEpisode {
+    font-size: 12px;
+  }
+  .slideAnime {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      174deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.773546918767507) 99%
+    );
+  }
+}

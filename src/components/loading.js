@@ -48,7 +48,15 @@ export const SmallLoading = () => {
     });
   }, []);
   return (
-    <div style={{ height: "40px", width: "40px" }}>
+    <div
+      style={{
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <svg
         className="smallLoading"
         width="110"

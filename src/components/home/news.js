@@ -1,33 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { useFetchNews } from "./fetchNews";
+import { useFetchNews } from "../../hooks/fetchNews";
 import Loading, { SmallLoading } from "../loading";
+import "../../css/home/news.css";
+
 const News = () => {
+  const [showingMore, setShowingMore] = useState(true);
   const [newsCount, setNewsCount] = useState(10);
   const { loading, news } = useFetchNews(newsCount);
-  const [showingMore, setShowingMore] = useState(false);
-  useEffect(() => {
-    setShowingMore(false);
-  }, [news]);
 
+  useEffect(() => {
+    if (news.length >= 1) {
+      setShowingMore(false);
+    } else {
+      setShowingMore(true);
+    }
+  }, [news]);
   return (
     <div>
-      {loading ? (
-        <Loading />
-      ) : (
-        news.map((eachNews) => {
-          return (
-            <div className="news" key={eachNews.newsNumber}>
-              <div className="newsImgBox">
-                <img src={eachNews.image} alt="" />
+      {loading
+        ? " "
+        : news.map((eachNews) => {
+            return (
+              <div className="news" key={eachNews.newsNumber}>
+                <div className="newsImgBox">
+                  <img src={eachNews.image} alt="" />
+                </div>
+                <div className="newsDetails">
+                  <div className="newsTitle">{eachNews.title}</div>
+                  <div className="newsText">{eachNews.text}</div>
+                </div>
               </div>
-              <div className="newsDetails">
-                <div className="newsTitle">{eachNews.title}</div>
-                <div className="newsText">{eachNews.text}</div>
-              </div>
-            </div>
-          );
-        })
-      )}
+            );
+          })}
       <div
         style={{
           display: "flex",
