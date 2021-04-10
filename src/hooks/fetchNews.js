@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import malScraper from "mal-scraper";
+// import malScraper from "mal-scraper";
+const getNewsNoDetails = require("./getNews");
 
 export const useFetchNews = (num) => {
   const [loading, setLoading] = useState(true);
   const [news, setNews] = useState([]);
 
   const getNews = () => {
-    malScraper
-      .getNewsNoDetails(num)
+    getNewsNoDetails(num)
       .then((data) => {
         setNews(data);
         setLoading(false);
