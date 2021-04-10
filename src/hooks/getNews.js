@@ -1,7 +1,8 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-const NEWS_URL_URI = "/news?p=";
+const NEWS_URL_URI =
+  "https://thingproxy.freeboard.io/fetch/https://myanimelist.net/news?p=";
 
 /* istanbul ignore next */
 const byProperty = (prop) => {
