@@ -3,6 +3,7 @@ import BrowseSearch from "../components/browse";
 import TrendingContainner from "../components/browse/trending";
 import UpcomingAnimeContainner from "../components/browse/upComingAnime";
 import TopAnimeContainner from "../components/browse/topAnime";
+import "../css/browse/mobile.css";
 
 function Browse() {
   return (

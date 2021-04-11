@@ -1,0 +1,10 @@
+@media screen and (max-width: 400px) {
+  .browseAnimeList {
+    justify-content: center;
+  }
+  .animeBox {
+    margin: 6px;
+    width: 95px;
+    height: 185px;
+  }
+}

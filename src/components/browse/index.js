@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../../css/browse/browse.css";
+
 import "../../css/browse/animeContainner.css";
 const BrowseSearch = () => {
   return (
