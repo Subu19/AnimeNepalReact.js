@@ -1,12 +1,77 @@
+.searchContainner {
+  width: 100vw;
+  padding: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark3);
+}
+.searchOptions {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.searchOption {
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin: 5px;
+}
+.searchOption h3 {
+  margin: 5px;
+  font-size: 15px;
+  font-weight: normal;
+}
+select {
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  background-color: var(--lightDark);
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 15px;
+  font-weight: normal;
+  background-color: var(--dark);
+  color: white;
+  border-style: none;
+}
+option {
+  height: 30px;
+  font-size: 15px;
+  font-weight: normal;
+  transition: 0.2s;
+  background-color: var(--dark);
+  color: white;
+  box-shadow: black 5px 5px 10px;
+  border-radius: 10px;
+}
+option:hover {
+  background-color: var(--white);
+}
 .browseSearch {
   margin: 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.epInput {
+  width: 60px;
+  height: 30px;
+  background-color: var(--dark);
+  color: white;
+  overflow: hidden;
+  border-style: none;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  outline: none;
 }
 .searchBar {
   margin-right: 20px;
@@ -14,6 +79,7 @@
   color: rgb(75, 75, 75);
   outline: none;
   height: 30px;
+  width: fit-content;
   font-size: 16px;
   border-style: none;
   border-radius: 20px;
@@ -24,12 +90,14 @@
   background-color: var(--green);
   outline: none;
   height: 30px;
+  width: fit-content;
   border-style: none;
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;
   transition: 0.2s;
+  margin-top: 10px;
 }
 .searchBtn:hover {
   transition: 0.2s;
