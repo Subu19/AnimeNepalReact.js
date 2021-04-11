@@ -54,6 +54,44 @@ export const useFetchAnimeList = ({
             }
         `,
     };
+  } else if (genre && genre !== "none") {
+    graphlQuery = {
+      query: `
+        {
+            Page(page: 1, perPage: ${num}) {
+                media(type: ANIME, genre: "${genre}"
+       ${status && status !== "none" ? ", status:" + status : ""}
+        ${season && season !== "none" ? ", season:" + season : ""}
+        ${maxEp && maxEp !== "none" ? ", episodes_greater:" + maxEp : ""}
+        ${minEp && minEp !== "none" ? ", episodes_lesser:" + minEp : ""}
+        ${adult && adult !== "none" ? ", isAdult:" + adult : ""}
+        ${sort && sort !== "none" ? ", sort:" + sort : ""}
+        ${format && format !== "none" ? ", format:" + format : ""}
+
+        ) {
+                id
+                status
+                title {
+                    romaji
+                    english
+                    native
+                }
+                coverImage {
+                    medium
+                }
+                episodes
+                nextAiringEpisode {
+                    timeUntilAiring
+                    episode
+                }
+                isAdult
+                bannerImage
+                genres
+                }
+            }
+            }
+        `,
+    };
   } else {
     graphlQuery = {
       query: `
@@ -95,6 +133,7 @@ export const useFetchAnimeList = ({
     };
   }
   const getAnimeSearch = () => {
+    console.log(graphlQuery);
     fetch("https://graphql.anilist.co", {
       method: "POST",
       headers: {

@@ -4,6 +4,7 @@ import "../../css/browse/browse.css";
 import "../../css/browse/animeContainner.css";
 const BrowseSearch = () => {
   const [searchUrl, setSearchUrl] = useState("");
+  // /browse/search?name=none&season=none&status=none&format=none&genre=none&adult=none&minEp=none&maxEp=none&adult=none&sort=none
   const addInSearch = (e) => {
     console.log(e);
   };
@@ -56,12 +57,18 @@ const BrowseSearch = () => {
               <option value="Action">Action</option>
               <option value="Comedy">Comedy</option>
               <option value="Romance">Romance</option>
-              <option value="Magic">Magic</option>
+              <option value="Supernatural">Magic</option>
               <option value="Drama">Drama</option>
-              <option value="Military">Military</option>
+              <option value="Adventure">Adventure</option>
               <option value="Slice of Life">Slice of Life</option>
               <option value="Psychological">Psychological</option>
-              <option value="History">History</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Horror">Horror</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Sports">Sports</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Ecchi">Ecchi</option>
             </select>
           </div>
           <div className="searchOption">
@@ -87,6 +94,15 @@ const BrowseSearch = () => {
               placeholder="Max Ep"
               className="epInput"
             ></input>
+          </div>
+          <div className="searchOption">
+            <h3>Sort</h3>
+            <select name="adult">
+              <option value="none">None</option>
+              <option value="POPULARITY_DESC">Populatiry</option>
+              <option value="TRENDING_DESC">Trending</option>
+              <option value="FAVOURITES_DESC">Favourate</option>
+            </select>
           </div>
         </div>
       </div>

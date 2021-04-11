@@ -10,7 +10,9 @@ function useQuery() {
 const SearchContainner = () => {
   const [params, setParams] = useState({});
   let query = useQuery();
+
   useEffect(() => {
+    console.log(query);
     if (query.get("name")) {
       setParams((params) => {
         const search = query.get("name");
@@ -19,8 +21,14 @@ const SearchContainner = () => {
     }
     if (query.get("status")) {
       setParams((params) => {
-        const genre = query.get("status");
-        return { ...params, status: genre };
+        const status = query.get("status");
+        return { ...params, status: status };
+      });
+    }
+    if (query.get("genre")) {
+      setParams((params) => {
+        const genre = query.get("genre");
+        return { ...params, genre: genre };
       });
     }
     if (query.get("season")) {
