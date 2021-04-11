@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 // import malScraper from "mal-scraper";
 
-export const useFetchTrending = (num) => {
+export const useFetchTopAnime = (num) => {
   const [loading, setLoading] = useState(true);
-  const [trending, setTrending] = useState([]);
+  const [topAnime, setTopAnime] = useState([]);
   const graphlQuery = {
     query: `
         {
             Page(page: 1, perPage: ${num}) {
-                media(status: RELEASING, type: ANIME, sort: POPULARITY_DESC) {
+                media(status: FINISHED, type: ANIME, sort: POPULARITY_DESC) {
                 id
                 status
                 title {
@@ -32,7 +32,7 @@ export const useFetchTrending = (num) => {
             }
         `,
   };
-  const getTrending = () => {
+  const getTopAnime = () => {
     fetch("https://graphql.anilist.co", {
       method: "POST",
       headers: {
@@ -50,15 +50,15 @@ export const useFetchTrending = (num) => {
         } else {
           ////////////responded data in json//////////////
           const array = jsonFormat.data.Page.media;
-          setTrending(array);
+          setTopAnime(array);
           setLoading(false);
         }
       });
   };
 
   useEffect(() => {
-    getTrending();
+    getTopAnime();
   }, [num]);
 
-  return { loading, trending };
+  return { loading, topAnime };
 };

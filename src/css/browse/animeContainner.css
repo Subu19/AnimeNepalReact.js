@@ -1,0 +1,64 @@
+.browseAnimeContainner {
+  height: fit-content;
+  padding: 10px 10px 10px 10px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.browseAnimeTitle {
+  color: var(--whiteText);
+  font-size: 20px;
+}
+.browseAnimeList {
+  height: fit-content;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+.animeBox {
+  height: 210px;
+  width: 120px;
+  overflow: hidden;
+  margin: 10px;
+  position: relative;
+}
+.preLoadAnimeBox {
+  height: 210px;
+  width: 120px;
+  overflow: hidden;
+  transform: scale(0.8);
+  margin: 10px;
+  opacity: 0;
+}
+.animeImage {
+  border-radius: 5px;
+  height: 80%;
+  width: 100%;
+  box-shadow: #19232c 2px 0px 10px;
+}
+
+.animeTitle {
+  height: 30px;
+  font-size: 13px;
+  color: var(--white);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.preLoadAnimeTitle {
+  height: 10px;
+  font-size: 13px;
+  color: var(--white);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

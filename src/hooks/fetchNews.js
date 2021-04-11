@@ -15,7 +15,6 @@ export const useFetchNews = (num) => {
       })
       .catch((err) => console.log(err));
   };
-
   useEffect(() => {
     getNews();
   }, [num]);

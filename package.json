@@ -7,11 +7,16 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "animejs": "^3.2.1",
+    "gasp": "0.0.2",
+    "gsap": "^3.6.1",
     "mal-scraper": "^2.11.3",
     "react": "^17.0.2",
+    "react-animejs": "^0.5.6",
     "react-dom": "^17.0.2",
+    "react-gsap": "^3.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-spring": "^9.1.0",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
