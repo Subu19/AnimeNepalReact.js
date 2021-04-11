@@ -1,6 +1,7 @@
 import React from "react";
 import { useFetchTopAnime } from "../../hooks/fetchTopAnime";
 import { PreLoadAnime } from "./preLoad";
+import addSvg from "../../assets/svg/add.svg";
 
 const TopAnimeContainner = () => {
   const { loading, topAnime } = useFetchTopAnime(9);
@@ -24,6 +25,7 @@ const TopAnimeContainner = () => {
                 <div className="animeTitle">
                   {anime.title.english || anime.title.romaji}
                 </div>
+                <img className="addAnimeButton" src={addSvg} alt=""></img>
               </div>
             );
           })

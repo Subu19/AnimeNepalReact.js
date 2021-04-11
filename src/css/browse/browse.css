@@ -44,8 +44,12 @@
   transform: scale(0);
   transition: 0.2s;
 }
+.animeImage {
+  transition: 0.2s;
+}
 .animeBox:hover .animeImage {
   box-shadow: black 0 2px 10px;
+  transition: 0.2s;
 }
 .animeBox:hover .addAnimeButton {
   transform: scale(1);

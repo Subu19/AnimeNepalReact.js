@@ -1,6 +1,7 @@
 import React from "react";
 import { useFetchUpComing } from "../../hooks/fetchUpcomingAnime";
 import { PreLoadAnime } from "./preLoad";
+import addSvg from "../../assets/svg/add.svg";
 
 const UpcomingAnimeContainner = () => {
   const { loading, upcomingAnime } = useFetchUpComing(9);
@@ -23,6 +24,7 @@ const UpcomingAnimeContainner = () => {
                 <div className="animeTitle">
                   {anime.title.english || anime.title.romaji}
                 </div>
+                <img className="addAnimeButton" src={addSvg} alt=""></img>
               </div>
             );
           })
