@@ -20,6 +20,7 @@ const NavLinks = () => {
         targets: ".navMenuContainner",
         height: 200,
         duration: 200,
+        easing: "linear",
       });
       setMenu(true);
     } else {
@@ -27,6 +28,7 @@ const NavLinks = () => {
         targets: ".navMenuContainner",
         height: 0,
         duration: 200,
+        easing: "linear",
       });
       setMenu(false);
     }

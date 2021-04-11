@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
-export const PreLoadAnime = () => {
-  const tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+export const PreLoadAnime = ({ items }) => {
+  const tempArray = [...Array(items).keys()];
   useEffect(() => {
     gsap.to(".preLoadAnimeBox", {
       duration: 0.5,

@@ -86,3 +86,14 @@ body {
   margin-left: 10px;
   margin-bottom: 5px;
 }
+.seeMore {
+  text-decoration: none;
+  color: var(--green);
+  font-size: 13px;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+.seeMore:hover {
+  transition: 0.2s;
+  color: var(--whiteText);
+}

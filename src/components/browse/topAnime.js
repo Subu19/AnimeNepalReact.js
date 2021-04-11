@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFetchTopAnime } from "../../hooks/fetchTopAnime";
 import { PreLoadAnime } from "./preLoad";
 import addSvg from "../../assets/svg/add.svg";
-
-const TopAnimeContainner = () => {
-  const { loading, topAnime } = useFetchTopAnime(9);
+import { Link } from "react-router-dom";
+import { clearScrollHistory } from "../ChearScrollHistory";
+const TopAnimeContainner = ({ items, seeMore }) => {
+  const { loading, topAnime } = useFetchTopAnime(items);
+  // const [showSeeMore, setShowSeeMore]= useState(seeMore);
 
   return (
     <div className="browseAnimeContainner">
       <div className="browseAnimeTitle">Top Anime</div>
-
       <div className="browseAnimeList">
         {loading ? (
-          <PreLoadAnime />
+          <PreLoadAnime items={items} />
         ) : (
           topAnime.map((anime, i) => {
             return (
@@ -31,6 +32,17 @@ const TopAnimeContainner = () => {
           })
         )}
       </div>
+      {seeMore ? (
+        <Link
+          to="/browse/topAnime"
+          className="seeMore"
+          onClick={clearScrollHistory}
+        >
+          see more...
+        </Link>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

@@ -13,6 +13,7 @@ function Path() {
     <>
       <Router>
         <Navigation></Navigation>
+
         <Switch>
           <Route exact path="/">
             <Home />
@@ -20,7 +21,10 @@ function Path() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/browse">
+          <Route exact path="/browse">
+            <Browse />
+          </Route>
+          <Route path="/browse/:list">
             <Browse />
           </Route>
           <Route path="/feed">

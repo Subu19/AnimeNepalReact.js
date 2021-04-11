@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
 import { useFetchTrending } from "../../hooks/fetchTrending";
 import { PreLoadAnime } from "./preLoad";
+import { Link } from "react-router-dom";
+import { clearScrollHistory } from "../ChearScrollHistory";
+
 import addSvg from "../../assets/svg/add.svg";
-const TrendingContainner = () => {
-  const { loading, trending } = useFetchTrending(9);
+const TrendingContainner = ({ items, seeMore }) => {
+  const { loading, trending } = useFetchTrending(items);
 
   return (
     <div className="browseAnimeContainner">
       <div className="browseAnimeTitle">Trending Today</div>
       <div className="browseAnimeList">
         {loading ? (
-          <PreLoadAnime />
+          <PreLoadAnime items={items} />
         ) : (
           (console.log("fetching"),
           trending.map((anime, i) => (
@@ -28,6 +31,17 @@ const TrendingContainner = () => {
           )))
         )}
       </div>
+      {seeMore ? (
+        <Link
+          to="/browse/trending"
+          className="seeMore"
+          onClick={clearScrollHistory}
+        >
+          see more...
+        </Link>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
