@@ -133,7 +133,6 @@ export const useFetchAnimeList = ({
     };
   }
   const getAnimeSearch = () => {
-    console.log(graphlQuery);
     fetch("https://graphql.anilist.co", {
       method: "POST",
       headers: {

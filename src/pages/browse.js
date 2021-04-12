@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import BrowseSearch from "../components/browse";
 import TrendingContainner from "../components/browse/trending";
@@ -7,11 +7,17 @@ import TopAnimeContainner from "../components/browse/topAnime";
 import "../css/browse/mobile.css";
 
 function Browse() {
+  const [currentUrl, setCurrentUrl] = useState("");
+  const [containnerLoading, setContainnerLoading] = useState(false);
+
   const { list } = useParams();
   if (list === "trending") {
     return (
       <div className="main">
-        <BrowseSearch></BrowseSearch>
+        <BrowseSearch
+          setCurrentUrl={setCurrentUrl}
+          setCLoading={setContainnerLoading}
+        ></BrowseSearch>
         <TrendingContainner items={100} seeMore={false}></TrendingContainner>
       </div>
     );
@@ -19,7 +25,10 @@ function Browse() {
   if (list === "upcoming") {
     return (
       <div className="main">
-        <BrowseSearch></BrowseSearch>
+        <BrowseSearch
+          setCurrentUrl={setCurrentUrl}
+          setCLoading={setContainnerLoading}
+        ></BrowseSearch>
         <UpcomingAnimeContainner
           items={100}
           seeMore={false}
@@ -30,7 +39,10 @@ function Browse() {
   if (list === "topAnime") {
     return (
       <div className="main">
-        <BrowseSearch></BrowseSearch>
+        <BrowseSearch
+          setCurrentUrl={setCurrentUrl}
+          setCLoading={setContainnerLoading}
+        ></BrowseSearch>
         <TopAnimeContainner items={100} seeMore={false}></TopAnimeContainner>
       </div>
     );
@@ -38,7 +50,10 @@ function Browse() {
 
   return (
     <div className="main">
-      <BrowseSearch></BrowseSearch>
+      <BrowseSearch
+        setCurrentUrl={setCurrentUrl}
+        setCLoading={setContainnerLoading}
+      ></BrowseSearch>
       <TrendingContainner items={9} seeMore={true}></TrendingContainner>
       <UpcomingAnimeContainner
         items={9}

@@ -98,6 +98,11 @@ option:hover {
   cursor: pointer;
   transition: 0.2s;
   margin-top: 10px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
 }
 .searchBtn:hover {
   transition: 0.2s;

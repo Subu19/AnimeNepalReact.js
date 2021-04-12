@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useFetchAnimeList } from "../../hooks/fetchAnimeList";
 import { PreLoadAnime } from "./preLoad";
 import addSvg from "../../assets/svg/add.svg";
@@ -7,12 +7,12 @@ import { useEffect, useState } from "react";
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
-const SearchContainner = () => {
+const SearchContainner = (props) => {
+  const { currentUrl, setCLoading, cLoading } = props;
   const [params, setParams] = useState({});
   let query = useQuery();
 
   useEffect(() => {
-    console.log(query);
     if (query.get("name")) {
       setParams((params) => {
         const search = query.get("name");
@@ -78,15 +78,21 @@ const SearchContainner = () => {
         return { ...params, num };
       });
     }
-  }, []);
+  }, [currentUrl]);
 
   const { loading, list } = useFetchAnimeList(params);
-
+  useEffect(() => {
+    if (list) {
+      setCLoading(false);
+    }
+  }, [list]);
   return (
     <div className="browseAnimeContainner">
-      <div className="browseAnimeTitle">Top Anime Search</div>
+      <div className="browseAnimeTitle">
+        Anime Search {params.search ? "for " + params.search : ""}
+      </div>
       <div className="browseAnimeList">
-        {loading ? (
+        {loading || cLoading ? (
           <PreLoadAnime items={20} />
         ) : (
           list.map((anime, i) => {
