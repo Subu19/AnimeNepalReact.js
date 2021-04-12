@@ -12,7 +12,7 @@ const BrowseSearch = (props) => {
   const { setCurrentUrl } = props;
   const [query, setQuery] = useState({});
   const history = useHistory();
-  const [searchUrl, setSearchUrl] = useState("");
+  const [searchUrl, setSearchUrl] = useState("/browse/search");
   useEffect(() => {
     console.log(searchUrl);
   }, [searchUrl]);
