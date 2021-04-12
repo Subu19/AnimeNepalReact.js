@@ -86,7 +86,7 @@ const SearchContainner = (props) => {
   }, [params]);
   const { loading, list } = useFetchAnimeList(params);
   useEffect(() => {
-    if (list.length > 1) {
+    if (list.length > 2) {
       setCLoading(false);
       console.log(" changing");
     }
