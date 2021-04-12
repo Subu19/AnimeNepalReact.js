@@ -10,7 +10,6 @@ import Error from "../pages/error";
 import Navigation from "../components/nav/nav";
 
 function Path() {
-  const [containnerLoading, setContainnerLoading] = useState(false);
   return (
     <>
       <Router>
@@ -24,22 +23,13 @@ function Path() {
             <Home />
           </Route>
           <Route exact path="/browse">
-            <Browse
-              containnerLoading={containnerLoading}
-              setContainnerLoading={setContainnerLoading}
-            />
+            <Browse />
           </Route>
           <Route exact path="/browse/search">
-            <Search
-              containnerLoading={containnerLoading}
-              setContainnerLoading={setContainnerLoading}
-            />
+            <Search />
           </Route>
           <Route exact path="/browse/:list">
-            <Browse
-              containnerLoading={containnerLoading}
-              setContainnerLoading={setContainnerLoading}
-            />
+            <Browse />
           </Route>
           <Route path="/feed">
             <Feed />

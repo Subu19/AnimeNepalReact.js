@@ -9,10 +9,13 @@ function useQuery() {
 }
 const BrowseSearch = (props) => {
   let currentQuery = useQuery();
-  const { setCurrentUrl, setCLoading } = props;
+  const { setCurrentUrl } = props;
   const [query, setQuery] = useState({});
   const history = useHistory();
   const [searchUrl, setSearchUrl] = useState("");
+  useEffect(() => {
+    console.log(searchUrl);
+  }, [searchUrl]);
   useEffect(() => {
     let params = new URLSearchParams();
     query.name ? params.append("name", query.name) : params.delete("season");
@@ -26,7 +29,6 @@ const BrowseSearch = (props) => {
     query.sort ? params.set("sort", query.sort) : params.delete("sort");
     if (Object.keys(query).length > 0) {
       setSearchUrl("/browse/search?" + params.toString());
-      console.log(searchUrl);
     }
   }, [query, history]);
 
@@ -196,7 +198,6 @@ const BrowseSearch = (props) => {
           to={searchUrl}
           onClick={() => {
             setCurrentUrl(searchUrl);
-            setCLoading(true);
           }}
           className="searchBtn"
         >

@@ -8,11 +8,12 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 const SearchContainner = (props) => {
-  const { currentUrl, setCLoading, cLoading } = props;
+  const { currentUrl } = props;
   const [params, setParams] = useState({});
   let query = useQuery();
-
+  const [cLoading, setCLoading] = useState(true);
   useEffect(() => {
+    setParams({});
     if (query.get("name")) {
       setParams((params) => {
         const search = query.get("name");
@@ -78,19 +79,25 @@ const SearchContainner = (props) => {
         return { ...params, num };
       });
     }
+    setCLoading(true);
   }, [currentUrl]);
-
+  useEffect(() => {
+    console.log(params);
+  }, [params]);
   const { loading, list } = useFetchAnimeList(params);
   useEffect(() => {
-    if (list) {
+    if (list.length > 1) {
       setCLoading(false);
+      console.log(" changing");
     }
   }, [list]);
   return (
     <div className="browseAnimeContainner">
-      <div className="browseAnimeTitle">Anime Search</div>
+      <div className="browseAnimeTitle">
+        Anime Search {params.search ? "for " + params.search : ""}
+      </div>
       <div className="browseAnimeList">
-        {loading || cLoading ? (
+        {cLoading ? (
           <PreLoadAnime items={20} />
         ) : (
           list.map((anime, i) => {

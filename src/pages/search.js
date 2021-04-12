@@ -11,14 +11,8 @@ function Search(props) {
       <BrowseSearch
         setCurrentUrl={setCurrentUrl}
         currentUrl={currentUrl}
-        cLoading={containnerLoading}
-        setCLoading={setContainnerLoading}
       ></BrowseSearch>
-      <SearchContainner
-        currentUrl={currentUrl}
-        cLoading={containnerLoading}
-        setCLoading={setContainnerLoading}
-      ></SearchContainner>
+      <SearchContainner currentUrl={currentUrl}></SearchContainner>
     </div>
   );
 }

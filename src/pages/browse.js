@@ -7,7 +7,6 @@ import TopAnimeContainner from "../components/browse/topAnime";
 import "../css/browse/mobile.css";
 
 function Browse(props) {
-  const { containnerLoading, setContainnerLoading } = props;
   const [currentUrl, setCurrentUrl] = useState("");
 
   const { list } = useParams();
@@ -17,7 +16,6 @@ function Browse(props) {
         <BrowseSearch
           setCurrentUrl={setCurrentUrl}
           currentUrl={currentUrl}
-          setCLoading={setContainnerLoading}
         ></BrowseSearch>
         <TrendingContainner items={100} seeMore={false}></TrendingContainner>
       </div>
@@ -29,7 +27,6 @@ function Browse(props) {
         <BrowseSearch
           setCurrentUrl={setCurrentUrl}
           currentUrl={currentUrl}
-          setCLoading={setContainnerLoading}
         ></BrowseSearch>
         <UpcomingAnimeContainner
           items={100}
@@ -44,7 +41,6 @@ function Browse(props) {
         <BrowseSearch
           setCurrentUrl={setCurrentUrl}
           currentUrl={currentUrl}
-          setCLoading={setContainnerLoading}
         ></BrowseSearch>
         <TopAnimeContainner items={100} seeMore={false}></TopAnimeContainner>
       </div>
@@ -56,7 +52,6 @@ function Browse(props) {
       <BrowseSearch
         setCurrentUrl={setCurrentUrl}
         currentUrl={currentUrl}
-        setCLoading={setContainnerLoading}
       ></BrowseSearch>
       <TrendingContainner items={9} seeMore={true}></TrendingContainner>
       <UpcomingAnimeContainner
