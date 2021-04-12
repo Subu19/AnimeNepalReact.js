@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "../pages/home";
@@ -10,6 +10,7 @@ import Error from "../pages/error";
 import Navigation from "../components/nav/nav";
 
 function Path() {
+  const [containnerLoading, setContainnerLoading] = useState(false);
   return (
     <>
       <Router>
@@ -23,13 +24,22 @@ function Path() {
             <Home />
           </Route>
           <Route exact path="/browse">
-            <Browse />
+            <Browse
+              containnerLoading={containnerLoading}
+              setContainnerLoading={setContainnerLoading}
+            />
           </Route>
           <Route exact path="/browse/search">
-            <Search />
+            <Search
+              containnerLoading={containnerLoading}
+              setContainnerLoading={setContainnerLoading}
+            />
           </Route>
           <Route exact path="/browse/:list">
-            <Browse />
+            <Browse
+              containnerLoading={containnerLoading}
+              setContainnerLoading={setContainnerLoading}
+            />
           </Route>
           <Route path="/feed">
             <Feed />

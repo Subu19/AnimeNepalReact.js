@@ -6,9 +6,9 @@ import UpcomingAnimeContainner from "../components/browse/upComingAnime";
 import TopAnimeContainner from "../components/browse/topAnime";
 import "../css/browse/mobile.css";
 
-function Browse() {
+function Browse(props) {
+  const { containnerLoading, setContainnerLoading } = props;
   const [currentUrl, setCurrentUrl] = useState("");
-  const [containnerLoading, setContainnerLoading] = useState(false);
 
   const { list } = useParams();
   if (list === "trending") {
@@ -16,6 +16,7 @@ function Browse() {
       <div className="main">
         <BrowseSearch
           setCurrentUrl={setCurrentUrl}
+          currentUrl={currentUrl}
           setCLoading={setContainnerLoading}
         ></BrowseSearch>
         <TrendingContainner items={100} seeMore={false}></TrendingContainner>
@@ -27,6 +28,7 @@ function Browse() {
       <div className="main">
         <BrowseSearch
           setCurrentUrl={setCurrentUrl}
+          currentUrl={currentUrl}
           setCLoading={setContainnerLoading}
         ></BrowseSearch>
         <UpcomingAnimeContainner
@@ -41,6 +43,7 @@ function Browse() {
       <div className="main">
         <BrowseSearch
           setCurrentUrl={setCurrentUrl}
+          currentUrl={currentUrl}
           setCLoading={setContainnerLoading}
         ></BrowseSearch>
         <TopAnimeContainner items={100} seeMore={false}></TopAnimeContainner>
@@ -52,6 +55,7 @@ function Browse() {
     <div className="main">
       <BrowseSearch
         setCurrentUrl={setCurrentUrl}
+        currentUrl={currentUrl}
         setCLoading={setContainnerLoading}
       ></BrowseSearch>
       <TrendingContainner items={9} seeMore={true}></TrendingContainner>

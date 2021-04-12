@@ -26,6 +26,7 @@ const BrowseSearch = (props) => {
     query.sort ? params.set("sort", query.sort) : params.delete("sort");
     if (Object.keys(query).length > 0) {
       setSearchUrl("/browse/search?" + params.toString());
+      console.log(searchUrl);
     }
   }, [query, history]);
 

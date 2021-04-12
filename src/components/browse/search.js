@@ -88,9 +88,7 @@ const SearchContainner = (props) => {
   }, [list]);
   return (
     <div className="browseAnimeContainner">
-      <div className="browseAnimeTitle">
-        Anime Search {params.search ? "for " + params.search : ""}
-      </div>
+      <div className="browseAnimeTitle">Anime Search</div>
       <div className="browseAnimeList">
         {loading || cLoading ? (
           <PreLoadAnime items={20} />

@@ -17,14 +17,14 @@ export const useFetchAnimeList = ({
   const [list, setList] = useState([]);
   let graphlQuery;
   if (search && search !== "none") {
-    graphlQuery = {
-      query: `
+    if (genre && genre !== "none") {
+      graphlQuery = {
+        query: `
         {
             Page(page: 1, perPage: ${num}) {
-                media(type: ANIME,search: "${search}"
+                media(type: ANIME,search: "${search}",genre: "${genre}"
         ${status && status !== "none" ? ", status:" + status : ""}
         ${season && season !== "none" ? ", season:" + season : ""}
-        ${genre && genre !== "none" ? ", genre:" + genre : ""}
         ${maxEp && maxEp !== "none" ? ", episodes_greater:" + maxEp : ""}
         ${minEp && minEp !== "none" ? ", episodes_lesser:" + minEp : ""}
         ${adult && adult !== "none" ? ", isAdult:" + adult : ""}
@@ -53,7 +53,46 @@ export const useFetchAnimeList = ({
             }
             }
         `,
-    };
+      };
+    } else {
+      graphlQuery = {
+        query: `
+          {
+              Page(page: 1, perPage: ${num}) {
+                  media(type: ANIME,search: "${search}"
+          ${status && status !== "none" ? ", status:" + status : ""}
+          ${season && season !== "none" ? ", season:" + season : ""}
+          ${genre && genre !== "none" ? ", genre:" + genre : ""}
+          ${maxEp && maxEp !== "none" ? ", episodes_greater:" + maxEp : ""}
+          ${minEp && minEp !== "none" ? ", episodes_lesser:" + minEp : ""}
+          ${adult && adult !== "none" ? ", isAdult:" + adult : ""}
+          ${sort && sort !== "none" ? ", sort:" + sort : ""}
+          ${format && format !== "none" ? ", format:" + format : ""}
+          ) {
+                  id
+                  status
+                  title {
+                      romaji
+                      english
+                      native
+                  }
+                  coverImage {
+                      medium
+                  }
+                  episodes
+                  nextAiringEpisode {
+                      timeUntilAiring
+                      episode
+                  }
+                  isAdult
+                  bannerImage
+                  genres
+                  }
+              }
+              }
+          `,
+      };
+    }
   } else if (genre && genre !== "none") {
     graphlQuery = {
       query: `
