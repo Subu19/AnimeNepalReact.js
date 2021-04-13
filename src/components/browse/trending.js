@@ -49,7 +49,9 @@ const TrendingContainner = ({ items, seeMore }) => {
                   }}
                 ></hr>
                 <div className="hoverEpisode">
-                  {anime.nextAiringEpisode.episode || anime.episodes || "0"}{" "}
+                  {anime.nextAiringEpisode
+                    ? anime.nextAiringEpisode.episode
+                    : anime.episodes || "0"}{" "}
                   airing
                 </div>
               </div>
