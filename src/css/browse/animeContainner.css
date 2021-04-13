@@ -25,9 +25,48 @@
 .animeBox {
   height: 210px;
   width: 120px;
-  overflow: hidden;
   margin: 10px;
   position: relative;
+}
+.animeDetailPopUp {
+  position: absolute;
+  top: -5px;
+  padding: 5px;
+  width: 150px;
+  background-color: var(--dark3);
+  z-index: 1;
+  visibility: hidden;
+  border-radius: 10px;
+  transition: 0.1s;
+  transform: scale(0.5);
+}
+.animeBox:hover .animeDetailPopUp {
+  transform: scale(1);
+  top: 0px;
+  transition: 0.2s;
+  visibility: visible;
+  box-shadow: rgb(0, 0, 0) 2px 2px 30px;
+}
+.hoverGenres {
+  display: flex;
+  flex-wrap: wrap;
+}
+.hoverGenre {
+  margin: 4px;
+  font-size: 13px;
+  color: var(--green);
+}
+.hoverEpisode {
+  padding: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  background-color: crimson;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .preLoadAnimeBox {
   height: 210px;
