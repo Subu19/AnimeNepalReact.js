@@ -27,6 +27,7 @@ export const useFetchTrending = (num) => {
                 isAdult
                 bannerImage
                 genres
+                format
                 }
             }
             }

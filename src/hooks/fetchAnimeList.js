@@ -1,3 +1,4 @@
+import anime from "animejs";
 import { useState, useEffect } from "react";
 // import malScraper from "mal-scraper";
 
@@ -49,6 +50,7 @@ export const useFetchAnimeList = ({
                 isAdult
                 bannerImage
                 genres
+                format
                 }
             }
             }
@@ -87,6 +89,7 @@ export const useFetchAnimeList = ({
                   isAdult
                   bannerImage
                   genres
+                  format
                   }
               }
               }
@@ -126,6 +129,7 @@ export const useFetchAnimeList = ({
                 isAdult
                 bannerImage
                 genres
+                format
                 }
             }
             }
@@ -165,6 +169,7 @@ export const useFetchAnimeList = ({
                 isAdult
                 bannerImage
                 genres
+                format
                 }
             }
             }
@@ -189,6 +194,11 @@ export const useFetchAnimeList = ({
         } else {
           ////////////responded data in json//////////////
           const array = jsonFormat.data.Page.media;
+          array.map((anime) => {
+            if (anime.nextAiringEpisode == null) {
+              anime.nextAiringEpisode = { episode: null };
+            }
+          });
           setList(array);
           setLoading(false);
         }

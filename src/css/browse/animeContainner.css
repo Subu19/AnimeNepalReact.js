@@ -47,9 +47,17 @@
   visibility: visible;
   box-shadow: rgb(0, 0, 0) 2px 2px 30px;
 }
+.hoverFormat {
+  font-size: 14px;
+}
 .hoverGenres {
   display: flex;
   flex-wrap: wrap;
+}
+.hoverStatus {
+  margin-top: 10px;
+  font-size: 12px;
+  color: gray;
 }
 .hoverGenre {
   margin: 4px;

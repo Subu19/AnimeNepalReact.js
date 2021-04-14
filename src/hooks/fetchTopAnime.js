@@ -27,6 +27,7 @@ export const useFetchTopAnime = (num) => {
                 isAdult
                 bannerImage
                 genres
+                format
                 }
             }
             }

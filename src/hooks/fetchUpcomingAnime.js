@@ -27,6 +27,7 @@ export const useFetchUpComing = (num) => {
                 isAdult
                 bannerImage
                 genres
+                format
                 }
             }
             }

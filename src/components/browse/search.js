@@ -118,17 +118,20 @@ const SearchContainner = (props) => {
                 </div>
                 <img className="addAnimeButton" src={addSvg} alt=""></img>
                 <div className="animeDetailPopUp">
+                  <div className="hoverFormat">{anime.format}</div>
                   <div className="hoverGenres">
-                    {anime.genres.map((genre) => {
-                      return (
-                        <div
-                          key={"hoverGenre" + anime.id}
-                          className="hoverGenre"
-                        >
-                          {genre}
-                        </div>
-                      );
-                    })}
+                    {anime.genres
+                      ? anime.genres.map((genre, i) => {
+                          return (
+                            <div
+                              key={i + "hoverGenre" + anime.id}
+                              className="hoverGenre"
+                            >
+                              {genre}
+                            </div>
+                          );
+                        })
+                      : "=_="}
                   </div>
                   <hr
                     style={{
@@ -137,12 +140,16 @@ const SearchContainner = (props) => {
                       width: "40px",
                     }}
                   ></hr>
-                  <div className="hoverEpisode">
-                    {anime.episodes ||
-                      anime.nextAiringEpisode.episode - 1 ||
-                      "0"}{" "}
-                    episodes
-                  </div>
+                  {anime.format !== "MOVIE" ? (
+                    <div className="hoverEpisode">
+                      {anime.episodes != null
+                        ? anime.episodes + " episodes"
+                        : anime.nextAiringEpisode.episode + " airing" || ""}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <div className="hoverStatus">{anime.status || ""}</div>
                 </div>
               </div>
             );

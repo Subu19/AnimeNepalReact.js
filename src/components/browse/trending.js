@@ -32,10 +32,14 @@ const TrendingContainner = ({ items, seeMore }) => {
               </div>
               <img className="addAnimeButton" src={addSvg} alt=""></img>
               <div className="animeDetailPopUp">
+                <div className="hoverFormat">{anime.format}</div>
                 <div className="hoverGenres">
-                  {anime.genres.map((genre) => {
+                  {anime.genres.map((genre, i) => {
                     return (
-                      <div key={"hoverGenre" + anime.id} className="hoverGenre">
+                      <div
+                        key={i + "hoverGenre" + anime.id}
+                        className="hoverGenre"
+                      >
                         {genre}
                       </div>
                     );
@@ -48,12 +52,16 @@ const TrendingContainner = ({ items, seeMore }) => {
                     width: "40px",
                   }}
                 ></hr>
-                <div className="hoverEpisode">
-                  {anime.nextAiringEpisode
-                    ? anime.nextAiringEpisode.episode
-                    : anime.episodes || "0"}{" "}
-                  airing
-                </div>
+                {anime.format !== "MOVIE" ? (
+                  <div className="hoverEpisode">
+                    {anime.episodes != null
+                      ? anime.episodes + " episodes"
+                      : anime.nextAiringEpisode.episode + " airing" || ""}
+                  </div>
+                ) : (
+                  ""
+                )}
+                <div className="hoverStatus">{anime.status || ""}</div>
               </div>
             </div>
           )))

@@ -33,11 +33,12 @@ const UpcomingAnimeContainner = ({ items, seeMore }) => {
                 </div>
                 <img className="addAnimeButton" src={addSvg} alt=""></img>
                 <div className="animeDetailPopUp">
+                  <div className="hoverFormat">{anime.format}</div>
                   <div className="hoverGenres">
-                    {anime.genres.map((genre) => {
+                    {anime.genres.map((genre, i) => {
                       return (
                         <div
-                          key={"hoverGenre" + anime.id}
+                          key={i + "hoverGenre" + anime.id}
                           className="hoverGenre"
                         >
                           {genre}
@@ -52,9 +53,16 @@ const UpcomingAnimeContainner = ({ items, seeMore }) => {
                       width: "40px",
                     }}
                   ></hr>
-                  <div className="hoverEpisode">
-                    {anime.episodes || "0"} ep expected
-                  </div>
+                  {anime.format !== "MOVIE" ? (
+                    <div className="hoverEpisode">
+                      {anime.episodes != null
+                        ? anime.episodes + " ep expected"
+                        : "idk"}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <div className="hoverStatus">{anime.status || ""}</div>
                 </div>
               </div>
             );
