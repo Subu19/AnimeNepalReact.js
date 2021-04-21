@@ -51,6 +51,11 @@ export const useFetchTrending = (num) => {
         } else {
           ////////////responded data in json//////////////
           const array = jsonFormat.data.Page.media;
+          array.map((anime) => {
+            if (anime.nextAiringEpisode == null) {
+              anime.nextAiringEpisode = { episode: null };
+            }
+          });
           setTrending(array);
           setLoading(false);
         }

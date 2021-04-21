@@ -15,6 +15,17 @@ const SearchContainner = (props) => {
   const [cLoading, setCLoading] = useState(true);
   useEffect(() => {
     setParams({});
+    if (query.get("num")) {
+      setParams((params) => {
+        const num = query.get("num");
+        return { ...params, num };
+      });
+    } else {
+      setParams((params) => {
+        const num = 100;
+        return { ...params, num };
+      });
+    }
     if (query.get("name")) {
       setParams((params) => {
         const search = query.get("name");
@@ -69,17 +80,7 @@ const SearchContainner = (props) => {
         return { ...params, format: format };
       });
     }
-    if (query.get("num")) {
-      setParams((params) => {
-        const num = query.get("num");
-        return { ...params, num };
-      });
-    } else {
-      setParams((params) => {
-        const num = 100;
-        return { ...params, num };
-      });
-    }
+
     setCLoading(true);
   }, [currentUrl]);
   useEffect(() => {
@@ -87,9 +88,11 @@ const SearchContainner = (props) => {
   }, [params]);
   const { loading, list } = useFetchAnimeList(params);
   useEffect(() => {
-    if (list.length > 2) {
+    if (list.length > 1) {
       setCLoading(false);
       console.log(" changing");
+    } else {
+      console.log("weird");
     }
   }, [list]);
   return (

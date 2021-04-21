@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "../pages/home";
 import Browse from "../pages/browse";
+import AnimeDetails from "../pages/animeDetails";
 import Search from "../pages/search";
 import Feed from "../pages/feed";
 import Chat from "../pages/chat";
@@ -27,6 +28,9 @@ function Path() {
           </Route>
           <Route exact path="/browse/search">
             <Search />
+          </Route>
+          <Route exact path="/browse/anime/:id">
+            <AnimeDetails />
           </Route>
           <Route exact path="/browse/:list">
             <Browse />

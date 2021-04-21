@@ -51,6 +51,11 @@ export const useFetchTopAnime = (num) => {
         } else {
           ////////////responded data in json//////////////
           const array = jsonFormat.data.Page.media;
+          array.map((anime) => {
+            if (anime.nextAiringEpisode == null) {
+              anime.nextAiringEpisode = { episode: null };
+            }
+          });
           setTopAnime(array);
           setLoading(false);
         }
